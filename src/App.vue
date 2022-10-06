@@ -3,24 +3,19 @@
     <q-header elevated class="glossy">
       <q-toolbar>
         <q-toolbar-title>
-          My contacts
+          Smthn
         </q-toolbar-title>
-
       </q-toolbar>
     </q-header>
-    <ContactsTable />
+
+    <router-view/>
   </q-layout>
 </template>
 
 <script>
-import ContactsTable from './components/ContactsTable.vue'
+import { defineComponent } from 'vue'
 
-export default {
-  name: 'LayoutDefault',
-
-  components: {
-    ContactsTable
-  },
-
-}
+export default defineComponent({
+  name: 'App',
+})
 </script>
