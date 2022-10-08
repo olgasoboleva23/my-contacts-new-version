@@ -1,18 +1,34 @@
 <template>
-  <div>
-    <table>
-    <tr v-for="item in cites" :key="item.id">
-      <td>{{ item.citeName }}</td>
-      <td>
-        <q-btn :icon="`img:${item.img}`" @click="goTo(item.url)">
-        </q-btn>
-      </td>
-    </tr>
-    </table>
-  </div>
+  <q-markup-table
+    flat
+    bordered
+    separator="cell"
+    class="my-contacts-table"
+  >
+    <tbody>
+      <tr v-for="item in cites" :key="item.id">
+        <td>{{ item.citeName }}</td>
+        <td>
+        <transition name="appearing" appear>
+          <q-btn
+            unelevated
+            glossy
+            :icon="`img:${item.img}`"
+            @click="goTo(item.url)"
+            color="secondary"
+            dense
+          >
+          </q-btn>
+          </transition>
+        </td>
+      </tr>
+    </tbody>
+  </q-markup-table>
 </template>
 
 <script>
+
+import "../scss/components/ContactsTable.scss";
 
 export default {
   name: 'ContactsTable',
